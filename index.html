@@ -6,13 +6,27 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Barcode Scanner</h1>
-    <input type="file" id="csvFileInput" accept=".csv">
-    <video id="cameraPreview" autoplay></video>
-    <div id="barcodeResult"></div>
+    <div class="container">
+        <h1>Barcode Scanner</h1>
+        <div id="instructions">
+            <p>1. Click the "Access Camera" button to enable your camera.</p>
+            <p>2. Upload a CSV file containing accepted barcodes.</p>
+            <p>3. Scan a barcode to check if it's accepted.</p>
+        </div>
+        <button id="accessCameraBtn">Access Camera</button>
+        <input type="file" id="csvFileInput" accept=".csv">
+        <div id="acceptedBarcodes" class="hidden">
+            <h2>Accepted Barcodes</h2>
+            <ul id="barcodeList"></ul>
+        </div>
+        <video id="cameraPreview" autoplay></video>
+        <div id="barcodeResult"></div>
+    </div>
 
-    <script src="quagga.min.js"></script>
-    <script src="papaparse.min.js"></script>
+    <!-- Include QuaggaJS from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/quagga"></script>
+    <!-- Include PapaParse from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
