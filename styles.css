@@ -68,14 +68,20 @@ ul {
 }
 
 #cameraPreview {
-    display: block;
-    margin: 0 auto;
+    text-align: center;
+}
+
+#videoElement {
     width: 100%;
     max-width: 400px;
 }
 
-#barcodeResult {
+#scanResult {
     text-align: center;
-    font-size: 18px;
     margin-top: 20px;
+}
+
+#scanText {
+    font-size: 18px;
+    color: #333;
 }
