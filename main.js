@@ -16,6 +16,9 @@ accessCameraBtn.addEventListener('click', () => {
             name: 'Live',
             type: 'LiveStream',
             target: videoElement,
+            constraints: {
+                facingMode: 'environment', // Use the rear camera (change if needed)
+            },
         },
         decoder: {
             readers: ['ean_reader'], // Adjust barcode type as needed
