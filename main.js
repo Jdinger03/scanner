@@ -1,7 +1,9 @@
 const csvFileInput = document.getElementById('csvFileInput');
 const accessCameraBtn = document.getElementById('accessCameraBtn');
 const cameraPreview = document.getElementById('cameraPreview');
-const barcodeResult = document.getElementById('barcodeResult');
+const videoElement = document.getElementById('videoElement');
+const scanResult = document.getElementById('scanResult');
+const scanText = document.getElementById('scanText');
 const acceptedBarcodesSection = document.getElementById('acceptedBarcodes');
 const barcodeList = document.getElementById('barcodeList');
 
@@ -13,7 +15,7 @@ accessCameraBtn.addEventListener('click', () => {
         inputStream: {
             name: 'Live',
             type: 'LiveStream',
-            target: cameraPreview,
+            target: videoElement,
         },
         decoder: {
             readers: ['ean_reader'], // Adjust barcode type as needed
@@ -25,6 +27,7 @@ accessCameraBtn.addEventListener('click', () => {
         }
         Quagga.start();
         accessCameraBtn.style.display = 'none';
+        cameraPreview.classList.remove('hidden');
     });
 });
 
@@ -47,9 +50,9 @@ csvFileInput.addEventListener('change', (event) => {
 Quagga.onDetected((result) => {
     const scannedBarcode = result.codeResult.code;
     const isAccepted = acceptedBarcodes.includes(scannedBarcode);
-
-    // Display the scanned barcode and whether it's accepted
-    barcodeResult.textContent = `Scanned Barcode: ${scannedBarcode} | Accepted: ${isAccepted ? 'Yes' : 'No'}`;
+    
+    scanText.textContent = `BARCODE SCANNED. OUTPUT: ${scannedBarcode} ${isAccepted ? 'ACCEPTED' : 'DENIED'}`;
+    scanResult.classList.remove('hidden');
 });
 
 function displayAcceptedBarcodes() {
