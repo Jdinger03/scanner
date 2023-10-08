@@ -19,8 +19,12 @@
             <h2>Accepted Barcodes</h2>
             <ul id="barcodeList"></ul>
         </div>
-        <video id="cameraPreview" autoplay></video>
-        <div id="barcodeResult"></div>
+        <div id="cameraPreview" class="hidden">
+            <video id="videoElement" autoplay playsinline muted></video>
+        </div>
+        <div id="scanResult" class="hidden">
+            <p id="scanText"></p>
+        </div>
     </div>
 
     <!-- Include QuaggaJS from a CDN -->
