@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#csvFileInput {
+    display: block;
+    margin: 20px auto;
+}
+
+#cameraPreview {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+#barcodeResult {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
